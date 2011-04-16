@@ -24,7 +24,7 @@ BuildRequires: perl(Moose)
 BuildRequires: perl(Moose::Autobox)
 BuildRequires: perl(Test::More)
 BuildRequires: perl(namespace::autoclean)
-BuildRequires: perl(Module::Build)
+BuildRequires: perl(Throwable)
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
