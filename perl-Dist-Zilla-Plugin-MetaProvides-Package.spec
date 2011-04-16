@@ -1,9 +1,9 @@
 %define upstream_name    Dist-Zilla-Plugin-MetaProvides-Package
-%define upstream_version 1.11034304
+%define upstream_version 1.12060501
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    %mkrel 1
 
 Summary:    Extract namespaces/version from traditional packages for provides
 License:    GPL+ or Artistic
