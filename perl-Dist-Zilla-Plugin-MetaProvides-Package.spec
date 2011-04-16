@@ -23,7 +23,8 @@ BuildRequires: perl(Module::Extract::Namespaces)
 BuildRequires: perl(Module::Extract::VERSION)
 BuildRequires: perl(Moose)
 BuildRequires: perl(Moose::Autobox)
-BuildRequires: perl(Test::More)
+BuildRequires: perl(Test::Fatal)
+BuildRequires: perl(Test::More) >= 0.960
 BuildRequires: perl(namespace::autoclean)
 BuildRequires: perl(Throwable)
 BuildArch: noarch
