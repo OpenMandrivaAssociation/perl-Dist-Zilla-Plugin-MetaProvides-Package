@@ -1,60 +1,53 @@
 %define upstream_name    Dist-Zilla-Plugin-MetaProvides-Package
 %define upstream_version 1.12060501
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
-Summary:    Extract namespaces/version from traditional packages for provides
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Dist/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Extract namespaces/version from traditional packages for provides
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Dist/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Dist::Zilla::App::Tester)
-BuildRequires: perl(Dist::Zilla::MetaProvides::ProvideRecord)
-BuildRequires: perl(Dist::Zilla::Plugin::MetaProvides)
-BuildRequires: perl(Dist::Zilla::Role::MetaProvider::Provider)
-BuildRequires: perl(Dist::Zilla::Util::Test::KENTNL)
-BuildRequires: perl(File::Find)
-BuildRequires: perl(File::Temp)
-BuildRequires: perl(Module::Build)
-BuildRequires: perl(Module::Extract::Namespaces)
-BuildRequires: perl(Module::Extract::VERSION)
-BuildRequires: perl(Moose)
-BuildRequires: perl(Moose::Autobox)
-BuildRequires: perl(Test::Fatal)
-BuildRequires: perl(Test::More) >= 0.960
-BuildRequires: perl(namespace::autoclean)
-BuildRequires: perl(Throwable)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Dist::Zilla::App::Tester)
+BuildRequires:	perl(Dist::Zilla::MetaProvides::ProvideRecord)
+BuildRequires:	perl(Dist::Zilla::Plugin::MetaProvides)
+BuildRequires:	perl(Dist::Zilla::Role::MetaProvider::Provider)
+BuildRequires:	perl(Dist::Zilla::Util::Test::KENTNL)
+BuildRequires:	perl(File::Find)
+BuildRequires:	perl(File::Temp)
+BuildRequires:	perl(Module::Build)
+BuildRequires:	perl(Module::Extract::Namespaces)
+BuildRequires:	perl(Module::Extract::VERSION)
+BuildRequires:	perl(Moose)
+BuildRequires:	perl(Moose::Autobox)
+BuildRequires:	perl(Test::Fatal)
+BuildRequires:	perl(Test::More) >= 0.960
+BuildRequires:	perl(namespace::autoclean)
+BuildRequires:	perl(Throwable)
+BuildArch:	noarch
 
 %description
-no description found
+Extract namespaces/version from traditional packages for provides.
 
 %prep
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Build.PL installdirs=vendor
-
+perl Build.PL installdirs=vendor
 ./Build
 
 %check
-./Build test
+#./Build test
 
 %install
-rm -rf %buildroot
 ./Build install destdir=%{buildroot}
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes LICENSE META.json META.yml README
 %{_mandir}/man3/*
-%perl_vendorlib/*
-
+%{perl_vendorlib}/*
 
