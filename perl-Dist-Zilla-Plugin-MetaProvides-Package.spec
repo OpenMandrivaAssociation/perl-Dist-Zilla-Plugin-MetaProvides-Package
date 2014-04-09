@@ -1,11 +1,12 @@
 %define upstream_name    Dist-Zilla-Plugin-MetaProvides-Package
-%define upstream_version 1.12060501
+%define upstream_version 2.000001
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Release:	1
 
 Summary:	Extract namespaces/version from traditional packages for provides
+
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
@@ -50,4 +51,5 @@ perl Build.PL installdirs=vendor
 %doc Changes LICENSE META.json META.yml README
 %{_mandir}/man3/*
 %{perl_vendorlib}/*
+
 
